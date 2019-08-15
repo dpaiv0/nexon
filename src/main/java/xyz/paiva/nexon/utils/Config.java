@@ -37,6 +37,11 @@ public final class Config {
 	public String getString(String entity) throws Exception {
 		Yaml yaml = new Yaml();
 		Map<String, String> map = yaml.load(new FileInputStream(new File(String.format("./%s", this.fileName))));
-		return map.get(entity);
+		return map.get(entity) != null ? map.get(entity) : "";
+	}
+	
+	public Boolean entityExists(String entity) throws Exception {
+		if (this.getString(entity).isEmpty()) return false;
+		else return true;
 	}
 }

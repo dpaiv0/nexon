@@ -25,16 +25,12 @@ public class MessageListener extends ListenerAdapter {
 			else {
 				Message message = msg.getMessage();
 				String content = message.getContentRaw();
-				System.out.println("Content: " + content);
 				String[] args = content.split(" ");
-				System.out.println("Args: " + args);
 				String[] strippedArgs = Arrays.copyOfRange(args, 1, args.length);
-				System.out.println("strippedArgs: " + strippedArgs);
 				String commandName = args[0].replace(this.config.getString("prefix"), "");
-				System.out.println("commandName: " + commandName);
-				System.out.println("Does the command exist? " + this.checkCommand(this.client.commands, commandName));
 				if (this.checkCommand(this.client.commands, commandName)) {
 					Command command = this.getCommand(this.client.commands, commandName);
+					System.out.println("Command \"" + content + "\" was executed by " + message.getAuthor().getAsTag() + " on guild " + message.getGuild().getName() + ".");
 					command._run(message, strippedArgs);
 				}
 			}

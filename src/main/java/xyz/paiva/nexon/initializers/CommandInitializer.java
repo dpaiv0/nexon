@@ -14,10 +14,10 @@ public class CommandInitializer extends Initializer {
 	@Override
 	public void start() throws Exception {
 		try {
-			Boolean ping = this.addCommand(new PingCommand(this.client));
-			System.out.println("Was ping command loaded? " + ping);
+			this.addCommand(new PingCommand(this.client));
+			this.addCommand(new UserInfoCommand(this.client));
 		} catch (Exception e) {
-			throw e;
+			e.printStackTrace();
 		}
 	}
 
