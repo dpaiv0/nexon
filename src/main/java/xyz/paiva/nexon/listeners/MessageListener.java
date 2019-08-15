@@ -15,6 +15,9 @@ public class MessageListener extends ListenerAdapter {
 	public Config config = new Config("config.yml");
 	public DiscordClient client;
 	
+	/**
+	 * @param client
+	 */
 	public MessageListener(DiscordClient client) {
 		this.client = client;
 	}
@@ -39,6 +42,11 @@ public class MessageListener extends ListenerAdapter {
 		}
 	}
 	
+	/**
+	 * @param commands
+	 * @param name
+	 * @return Boolean
+	 */
 	public boolean checkCommand (ArrayList<Command> commands, String name) {
 		return commands
 				.stream()
@@ -47,6 +55,11 @@ public class MessageListener extends ListenerAdapter {
 				.isPresent();
 	}
 	
+	/**
+	 * @param commands
+	 * @param name
+	 * @return Boolean
+	 */
 	public Command getCommand (ArrayList<Command> commands, String name) {
 		return commands
 				.stream()

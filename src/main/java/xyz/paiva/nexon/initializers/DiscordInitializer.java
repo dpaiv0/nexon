@@ -8,6 +8,9 @@ import xyz.paiva.nexon.listeners.ReadyListener;
 import xyz.paiva.nexon.structures.Initializer;
 
 public class DiscordInitializer extends Initializer {
+	/**
+	 * @param discordClient
+	 */
 	public DiscordInitializer(DiscordClient discordClient) {
 		super(discordClient);
 		this.name = "DiscordInitializer";

@@ -8,10 +8,16 @@ public class Initializer {
 	public Config config = new Config("config.yml");
 	public DiscordClient client;
 
+	/**
+	 * @param discordClient
+	 */
 	public Initializer (DiscordClient discordClient) {
 		this.client = discordClient;
 		this.name = "";
 	}
 	
+	/**
+	 * @throws Exception
+	 */
 	public void start() throws Exception {}
 }

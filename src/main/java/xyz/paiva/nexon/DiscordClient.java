@@ -9,6 +9,9 @@ import xyz.paiva.nexon.structures.Command;
 public class DiscordClient {
 	public ArrayList<Command> commands; 
 
+	/**
+	 * @throws Exception
+	 */
 	public void start() throws Exception {
 		this.commands = new ArrayList<Command>();
 		DiscordInitializer discordInitializer = new DiscordInitializer(this);

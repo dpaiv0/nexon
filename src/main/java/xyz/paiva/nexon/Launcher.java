@@ -1,10 +1,6 @@
 package xyz.paiva.nexon;
 
 import xyz.paiva.nexon.utils.Config;
-/**
-discord-token: NTI0NjQ3Njc5MzA1OTczNzY5.XVH-gg.sQca-ApzuCYxt_CyndLybZwaxWk
-prefix: n!
-*/
 
 public class Launcher {
 	public Config config;

@@ -15,16 +15,25 @@ import org.yaml.snakeyaml.Yaml;
 public final class Config {
 	private String fileName;
 	
+	/**
+	 * @param fileName
+	 */
 	public Config(String fileName) {
 		this.fileName = fileName;
 	}
 
+	/**
+	 * @return Boolean
+	 */
 	public Boolean exists() {
 		File file = new File(String.format("./%s", this.fileName));
 		if (file.isFile()) return true;
 		else return false;
 	}
 	
+	/**
+	 * @throws Exception
+	 */
 	public void writeDefaultConfig() throws Exception {
 		List<String> defaultConfig = Arrays.asList("discord-token:", "prefix:");
 		Files.write(Paths.get(this.fileName), 
@@ -34,12 +43,22 @@ public final class Config {
 				StandardOpenOption.APPEND);
 	}
 	
+	/**
+	 * @param entity
+	 * @return String
+	 * @throws Exception
+	 */
 	public String getString(String entity) throws Exception {
 		Yaml yaml = new Yaml();
 		Map<String, String> map = yaml.load(new FileInputStream(new File(String.format("./%s", this.fileName))));
 		return map.get(entity) != null ? map.get(entity) : "";
 	}
 	
+	/**
+	 * @param entity
+	 * @return Boolean
+	 * @throws Exception
+	 */
 	public Boolean entityExists(String entity) throws Exception {
 		if (this.getString(entity).isEmpty()) return false;
 		else return true;
